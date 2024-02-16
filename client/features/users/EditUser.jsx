@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { FormError } from "../../ui/FormError";
 import styled from "styled-components";
+import { Spinner } from "../../ui/Spinner";
 
 const ValidationError = styled(FormError)`
   height: auto;
@@ -61,6 +62,7 @@ function EditUserForm() {
       },
     });
   }
+  if (isChangingEmail || isChangingName || isChangingPswd) return <Spinner />;
   if (edit === "name") {
     return (
       <>

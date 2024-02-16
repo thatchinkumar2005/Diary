@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useGetJournal } from "./useDiaries";
+import { Spinner } from "../../ui/Spinner";
 
 const StyledDiary = styled.div`
   min-height: 600px;
@@ -32,7 +33,7 @@ function Diary() {
   const { id } = useParams();
   const { journal, isFetchingSingleJournal } = useGetJournal(id);
   const date = new Date(journal?.created);
-  if (isFetchingSingleJournal) return <h1>Loading</h1>;
+  if (isFetchingSingleJournal) return <Spinner />;
   return (
     <StyledDiary>
       <Title>{journal.title}</Title>

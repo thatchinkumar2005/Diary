@@ -4,7 +4,7 @@ import loginApi from "../../services/loginApi.js";
 
 export function useLogin() {
   const axios = useAxios();
-  const { mutate: login, isLoading: isLoggingIn } = useMutation({
+  const { mutate: login, isPending: isLoggingIn } = useMutation({
     mutationFn: loginApi(axios),
   });
 

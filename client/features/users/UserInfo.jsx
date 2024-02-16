@@ -4,6 +4,7 @@ import useGetUserInfo from "./useUsers";
 import { BsPencilSquare } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { Link as BaseLink, useNavigate } from "react-router-dom";
+import { Spinner } from "../../ui/Spinner";
 
 const StyledUserInfoCard = styled.div`
   min-width: 700px;
@@ -86,7 +87,7 @@ function UserInfo() {
     navigate("/user/edit/email");
   }
 
-  if (isLoading || isFetchingJournals) return <h1>Loading</h1>;
+  if (isLoading || isFetchingJournals) return <Spinner />;
   return (
     <UserInfoContainer>
       <CgProfile size={150} />

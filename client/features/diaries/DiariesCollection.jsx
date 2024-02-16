@@ -3,6 +3,7 @@ import useDiaries, { useDeleteJournal } from "./useDiaries";
 import { BsPencilSquare } from "react-icons/bs";
 import { BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "../../ui/Spinner";
 
 const StyledDiariesCollection = styled.div`
   background-color: #0f1035;
@@ -105,7 +106,7 @@ function DiariesCollection() {
     Delete(id);
   }
 
-  if (isLoading) return <h1>Loading</h1>;
+  if (isLoading) return <Spinner />;
   if (journals.length === 0) return <h1>No Journals</h1>;
   return (
     <StyledDiariesCollection>

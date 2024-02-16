@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useLogin } from "./useLogin.js";
 import useAuth from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "../../ui/Spinner.jsx";
 
 function LoginForm() {
   const [error, setError] = useState("");
@@ -42,6 +43,8 @@ function LoginForm() {
       },
     });
   }
+
+  if (isLoggingIn) return <Spinner />;
 
   return (
     <>

@@ -4,6 +4,7 @@ import verifyApi from "../../services/verifyApi";
 import useAxios from "../../hooks/useAxios";
 import { Button } from "../../ui/Button";
 import styled from "styled-components";
+import { Spinner } from "../../ui/Spinner";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -46,7 +47,7 @@ function Verify() {
   }, []);
   console.log(mailToken);
 
-  if (isLoading) return <h1>Verifying</h1>;
+  if (isLoading) return <Spinner />;
   return (
     <Container>
       {verified ? (

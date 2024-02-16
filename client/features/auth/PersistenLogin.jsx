@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../contexts/UserContext";
 import useRefresh from "../../hooks/useRefreshToken";
 import { Outlet } from "react-router-dom";
+import { Spinner } from "../../ui/Spinner";
 
 function PersistenLogin() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,7 @@ function PersistenLogin() {
     !auth?.accessToken ? verifyJwt() : setIsLoading(false);
   }, []);
 
-  if (isLoading) return <h1>Loading</h1>;
+  if (isLoading) return <Spinner />;
 
   return (
     <>

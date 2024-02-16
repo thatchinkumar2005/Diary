@@ -7,6 +7,7 @@ import { FormError } from "../../ui/FormError";
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "../../ui/Spinner";
 
 const Form = styled(BaseForm)`
   height: 700px;
@@ -42,7 +43,7 @@ function RegisterForm() {
     });
   }
   if (isRegistering) {
-    return <h1>Registering</h1>;
+    return <Spinner />;
   }
 
   return (

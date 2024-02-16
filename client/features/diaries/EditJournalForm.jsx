@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { useEditJournal, useGetJournal } from "./useDiaries";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import { Spinner } from "../../ui/Spinner";
 const Form = styled(BaseForm)`
   height: 1000px;
   width: 1100px;
@@ -46,8 +47,8 @@ function EditJournalForm() {
       }
     );
   }
-  if (isFetchingSingleJournal) {
-    return <h1>Loading</h1>;
+  if (isFetchingSingleJournal || isEditing) {
+    return <Spinner />;
   }
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
