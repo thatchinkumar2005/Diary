@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export default function (req, res, next) {
   const authHeader = req.headers.authorization || req.headers.Authorization;
-  if (!authHeader?.starsWith("Bearer ")) {
+  if (!authHeader?.startsWith("Bearer ")) {
     return res.sendStatus(401);
   }
 
