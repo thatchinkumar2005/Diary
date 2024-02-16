@@ -30,7 +30,7 @@ export default async function refresh(req, res) {
           { username: decoded.username },
           process.env.ACCESS_TOKEN_SECRET,
           {
-            expiresIn: "2m",
+            expiresIn: "5s",
           }
         );
 
